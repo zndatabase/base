@@ -3,7 +3,7 @@
 namespace ZnDatabase\Base\Domain\Traits;
 
 use ZnCore\Base\Libs\DotEnv\DotEnv;
-use ZnLib\Db\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Base\Domain\Libs\TableAlias;
 
 trait TableNameTrait
