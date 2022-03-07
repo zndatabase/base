@@ -7,7 +7,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DriverManager;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Libs\DotEnv\DotEnvFacade;
-use ZnLib\Db\Helpers\ConfigHelper;
+use ZnDatabase\Base\Domain\Helpers\ConfigHelper;
 
 class DbFacade
 {

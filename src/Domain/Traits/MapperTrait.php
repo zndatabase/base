@@ -11,7 +11,7 @@ use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
 use ZnCore\Contract\Mapper\Interfaces\MapperInterface;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
-use ZnLib\Db\Mappers\DefaultMapper;
+use ZnDatabase\Base\Domain\Mappers\DefaultMapper;
 
 trait MapperTrait
 {
