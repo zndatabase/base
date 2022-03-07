@@ -6,7 +6,7 @@ use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use Illuminate\Support\Collection;
 use ZnLib\Db\Capsule\Manager;
-use ZnLib\Db\Enums\DbDriverEnum;
+use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
 use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
