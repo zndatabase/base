@@ -12,17 +12,35 @@ use ZnDatabase\Base\Domain\Repositories\Eloquent\SchemaRepository;
 trait OverwriteDatabaseTrait
 {
 
-    protected function defaultExclideHosts(): array {
+    /*protected function defaultExclideHosts(): array {
         return [
 //            'localhost',
 //            '127.0.0.1',
         ];
-    }
+    }*/
 
     protected function defaultExclideDatabaseNames(): array {
         return [
-            //'*_test',
+//            'localhost:*_test',
+            'localhost:*',
         ];
+    }
+    
+    /*protected function isExcludeHost(string $host): bool {
+        $exclude = DotEnv::get('DUMP_EXCLUDE_HOSTS', $this->defaultExclideHosts());
+        $isExclude = in_array($host, $exclude);
+        return $isExclude;
+    }*/
+    
+    protected function isExcludeDatabaseNames(string $database): bool {
+        $exclude = DotEnv::get('DUMP_EXCLUDE_DATABASES', null);
+        $exclude = !empty($exclude) ? explode(',', $exclude) : $this->defaultExclideDatabaseNames();
+        foreach ($exclude as $ex) {
+            if ($ex == $database || fnmatch($ex, $database)) {
+                return true;
+            }
+        }
+        return false;
     }
     
     protected function isContinue(InputInterface $input, OutputInterface $output): bool
@@ -30,20 +48,15 @@ trait OverwriteDatabaseTrait
         /** @var SchemaRepository $schemaRepository */
         $schemaRepository = ContainerHelper::getContainer()->get(SchemaRepository::class);
         $connection = $schemaRepository->getConnection();
-        
+
         $host = $connection->getConfig('host');
-        $exclude = DotEnv::get('DUMP_EXCLUDE_HOSTS', $this->defaultExclideHosts());
-        $isExclude = in_array($host, $exclude);
-        if ($isExclude) {
+        /*if ($this->isExcludeHost($host)) {
             return true;
-        }
+        }*/
 
         $database = $connection->getConfig('database');
-        $exclude = DotEnv::get('DUMP_EXCLUDE_DATABASES', $this->defaultExclideDatabaseNames());
-        foreach ($exclude as $ex) {
-            if ($ex == $database || fnmatch($ex, $database)) {
-                return true;
-            }
+        if ($this->isExcludeDatabaseNames($host . ':' . $database)) {
+            return true;
         }
 
         /*$isExclude = in_array($database, $exclude);
