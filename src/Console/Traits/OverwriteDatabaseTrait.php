@@ -5,6 +5,8 @@ namespace ZnDatabase\Base\Console\Traits;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
+use ZnCore\Base\Helpers\StringHelper;
+use ZnCore\Base\Helpers\UrlHelper;
 use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
 use ZnCore\Base\Libs\DotEnv\DotEnv;
 use ZnDatabase\Base\Domain\Repositories\Eloquent\SchemaRepository;
@@ -19,20 +21,29 @@ trait OverwriteDatabaseTrait
         ];
     }*/
 
-    protected function defaultExclideDatabaseNames(): array {
+    protected function defaultExclideDatabaseNames(): array
+    {
         return [
 //            'localhost:*_test',
-            'localhost:*',
+//            'localhost:*',
+//            "pgsql://postgres:postgres@localhost/social_server",
+//            'pgsql://localhost/social_server',
+//            'pgsql://localhost/*',
+//            "*://*@localhost/*",
+            "*://localhost/*_test",
+//            "*://localhost/*",
+//            'sqlite:*',
         ];
     }
-    
+
     /*protected function isExcludeHost(string $host): bool {
         $exclude = DotEnv::get('DUMP_EXCLUDE_HOSTS', $this->defaultExclideHosts());
         $isExclude = in_array($host, $exclude);
         return $isExclude;
     }*/
-    
-    protected function isExcludeDatabaseNames(string $database): bool {
+
+    protected function isExcludeDatabaseNames(string $database): bool
+    {
         $exclude = DotEnv::get('DUMP_EXCLUDE_DATABASES', null);
         $exclude = !empty($exclude) ? explode(',', $exclude) : $this->defaultExclideDatabaseNames();
         foreach ($exclude as $ex) {
@@ -42,30 +53,47 @@ trait OverwriteDatabaseTrait
         }
         return false;
     }
-    
-    protected function isContinue(InputInterface $input, OutputInterface $output): bool
+
+    protected function getConnectionUrl(): string
     {
         /** @var SchemaRepository $schemaRepository */
         $schemaRepository = ContainerHelper::getContainer()->get(SchemaRepository::class);
         $connection = $schemaRepository->getConnection();
 
-        $host = $connection->getConfig('host');
-        /*if ($this->isExcludeHost($host)) {
-            return true;
-        }*/
+        $params = [
+            'scheme' => $connection->getConfig('driver'),
+            'host' => $connection->getConfig('host'),
+            'port' => $connection->getConfig('port'),
+            'path' => $connection->getConfig('database'),
+            'user' => $connection->getConfig('username'),
+            'pass' => $connection->getConfig('password'),
+        ];
 
-        $database = $connection->getConfig('database');
-        if ($this->isExcludeDatabaseNames($host . ':' . $database)) {
+        if ($connection->getConfig('driver') == 'sqlite') {
+            unset($params['host']);
+            unset($params['user']);
+            unset($params['pass']);
+        }
+
+        $url = UrlHelper::generateUrlFromParams($params);
+        if ($connection->getConfig('driver') == 'sqlite') {
+            $url = StringHelper::removeDoubleChar($url, '/');
+        }
+
+        return $url;
+    }
+
+    protected function isContinue(InputInterface $input, OutputInterface $output): bool
+    {
+        $url = $this->getConnectionUrl();
+        if ($this->isExcludeDatabaseNames($url)) {
             return true;
         }
 
-        /*$isExclude = in_array($database, $exclude);
-        if($isExclude) {
-            return true;
-        }*/
-
 //        dd($this->dbRepository->getConnection()->getConfig('database'));
 
+        $output->writeln('');
+        $output->writeln("Connection URL: <fg=green>{$url}</>");
         $output->writeln('');
         $output->writeln('Further actions may overwrite your database!');
         $question = new ConfirmationQuestion('Do you want to continue? (y|N): ', false);
