@@ -29,24 +29,24 @@ trait OverwriteDatabaseTrait
 //            "pgsql://postgres:postgres@localhost/social_server",
 //            'pgsql://localhost/social_server',
 //            'pgsql://localhost/*',
-//            "*://*@localhost/*",
-            "*://localhost/*_test",
-//            "*://localhost/*",
+
+
+//            "*://*@localhost/*_test",
+//            "*://localhost/*_test",
+//            "sqlite:*test*",
+
+//            "*://*localhost/*",
 //            'sqlite:*',
         ];
     }
 
-    /*protected function isExcludeHost(string $host): bool {
-        $exclude = DotEnv::get('DUMP_EXCLUDE_HOSTS', $this->defaultExclideHosts());
-        $isExclude = in_array($host, $exclude);
-        return $isExclude;
-    }*/
-
     protected function isExcludeDatabaseNames(string $database): bool
     {
-        $exclude = DotEnv::get('DUMP_EXCLUDE_DATABASES', null);
+        $exclude = DotEnv::get('DATABASE_PROTECT_EXCLUDE', null);
         $exclude = !empty($exclude) ? explode(',', $exclude) : $this->defaultExclideDatabaseNames();
+//        dd($exclude);
         foreach ($exclude as $ex) {
+            $ex = trim($ex);
             if ($ex == $database || fnmatch($ex, $database)) {
                 return true;
             }
@@ -62,7 +62,7 @@ trait OverwriteDatabaseTrait
 
         $params = [
             'scheme' => $connection->getConfig('driver'),
-            'host' => $connection->getConfig('host'),
+            'host' => $connection->getConfig('host') ?: 'localhost',
             'port' => $connection->getConfig('port'),
             'path' => $connection->getConfig('database'),
             'user' => $connection->getConfig('username'),
