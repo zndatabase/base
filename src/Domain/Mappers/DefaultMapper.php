@@ -8,8 +8,7 @@ use ZnCore\Domain\Helpers\EntityHelper;
 
 /**
  * Class DefaultMapper
- * @package ZnLib\Db\Mappers
- * @deprecated 
+ * @deprecated
  */
 class DefaultMapper implements MapperInterface
 {
