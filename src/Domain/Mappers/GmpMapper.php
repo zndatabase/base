@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Mappers;
 
-use ZnCore\Base\Interfaces\EncoderInterface;
+use ZnCore\Contract\Encoder\Interfaces\EncoderInterface;
 
 class GmpMapper implements EncoderInterface
 {

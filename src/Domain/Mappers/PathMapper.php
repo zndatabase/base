@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Mappers;
 
-use ZnCore\Base\Interfaces\EncoderInterface;
+use ZnCore\Contract\Encoder\Interfaces\EncoderInterface;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 
 class PathMapper implements EncoderInterface
