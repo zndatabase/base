@@ -31,7 +31,7 @@ class QueryFilter
         $this->query = $query;
     }
 
-    public function getQueryWithoutRelations(): Query
+    /*public function getQueryWithoutRelations(): Query
     {
         $query = clone $this->query;
         if(method_exists($this->repository, 'relations')) {
@@ -39,7 +39,7 @@ class QueryFilter
             $this->with = RelationWithHelper::cleanWith($this->repository->relations(), $query);
         }
         return $query;
-    }
+    }*/
 
     public function loadRelations(Collection $collection)
     {
