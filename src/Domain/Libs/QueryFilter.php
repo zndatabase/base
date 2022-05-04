@@ -9,15 +9,11 @@ use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Helpers\Repository\RelationHelper;
 use ZnCore\Domain\Helpers\Repository\RelationWithHelper;
 use ZnCore\Domain\Interfaces\ReadAllInterface;
-use ZnCore\Domain\Interfaces\Repository\RelationConfigInterface;
 use ZnCore\Domain\Relations\libs\RelationLoader;
 
 class QueryFilter
 {
 
-    /**
-     * @var RelationConfigInterface
-     */
     private $repository;
     private $query;
     private $with;
@@ -25,21 +21,8 @@ class QueryFilter
     public function __construct(ReadAllInterface $repository, Query $query)
     {
         $this->repository = $repository;
-        if ($this->repository && $this->repository instanceof RelationConfigInterface) {
-            DeprecateHelper::softThrow('RelationConfigInterface is deprecated, use relations2 for definition!');
-        }
         $this->query = $query;
     }
-
-    /*public function getQueryWithoutRelations(): Query
-    {
-        $query = clone $this->query;
-        if(method_exists($this->repository, 'relations')) {
-            DeprecateHelper::softThrow('Method relations is deprecated, use relations2 for definition!');
-            $this->with = RelationWithHelper::cleanWith($this->repository->relations(), $query);
-        }
-        return $query;
-    }*/
 
     public function loadRelations(Collection $collection)
     {
