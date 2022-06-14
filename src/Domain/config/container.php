@@ -13,12 +13,12 @@ return [
         EntityManager::class => function (ContainerInterface $container) {
             return EntityManager::getInstance($container);
         },*/
-        EntityManagerInterface::class => function (ContainerInterface $container) {
+        /*EntityManagerInterface::class => function (ContainerInterface $container) {
             $em = EntityManager::getInstance($container);
 //            $eloquentOrm = $container->get(EloquentOrm::class);
 //            $em->addOrm($eloquentOrm);
             return $em;
-        },
+        },*/
         Manager::class => function () {
             return ManagerFactory::createManagerFromEnv();
         },
