@@ -5,6 +5,7 @@ use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
 use ZnCore\Domain\Libs\EntityManager;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Eloquent\Domain\Factories\ManagerFactory;
+use Illuminate\Database\Capsule\Manager as CapsuleManager;
 
 return [
     'definitions' => [],
@@ -22,5 +23,6 @@ return [
         Manager::class => function () {
             return ManagerFactory::createManagerFromEnv();
         },
+        CapsuleManager::class => Manager::class,
     ],
 ];
