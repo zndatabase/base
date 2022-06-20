@@ -9,7 +9,7 @@ use ZnCore\Base\Helpers\InstanceHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
 use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
 use ZnCore\Contract\Mapper\Interfaces\MapperInterface;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnDatabase\Base\Domain\Mappers\DefaultMapper;
 

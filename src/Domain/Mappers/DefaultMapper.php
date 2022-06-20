@@ -4,7 +4,7 @@ namespace ZnDatabase\Base\Domain\Mappers;
 
 use ZnCore\Base\Helpers\ClassHelper;
 use ZnCore\Contract\Mapper\Interfaces\MapperInterface;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 
 /**
  * Class DefaultMapper

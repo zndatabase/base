@@ -5,7 +5,7 @@ namespace ZnDatabase\Base\Domain\Repositories\Postgres;
 use App\Example\Controllers\ExampleEntity;
 use Illuminate\Support\Collection;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\RelationEntity;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
