@@ -38,7 +38,7 @@ class QueryFilter
         /*if($this->repository instanceof FieldRepository) {
             prr($with);
         }*/
-        $collection = RelationHelper::load($this->repository, $this->query, $collection);
+//        $collection = RelationHelper::load($this->repository, $this->query, $collection);
         return $collection;
     }
 }
