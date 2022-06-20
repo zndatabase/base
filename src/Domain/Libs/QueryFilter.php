@@ -4,11 +4,9 @@ namespace ZnDatabase\Base\Domain\Libs;
 
 use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Repositories\Eloquent\FieldRepository;
-use ZnCore\Base\Helpers\DeprecateHelper;
-use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Helpers\Repository\RelationHelper;
-use ZnCore\Domain\Helpers\Repository\RelationWithHelper;
 use ZnCore\Domain\Interfaces\ReadAllInterface;
+use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\libs\RelationLoader;
 
 class QueryFilter
@@ -26,7 +24,7 @@ class QueryFilter
 
     public function loadRelations(Collection $collection)
     {
-        if(method_exists($this->repository, 'relations2')) {
+        if (method_exists($this->repository, 'relations2')) {
             $relationLoader = new RelationLoader;
             $relationLoader->setRelations($this->repository->relations2());
             $relationLoader->setRepository($this->repository);
