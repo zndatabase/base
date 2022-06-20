@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Interfaces;
 
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 
 interface QueryBuilderInterface
 {

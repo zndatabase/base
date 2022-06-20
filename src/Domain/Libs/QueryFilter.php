@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Repositories\Eloquent\FieldRepository;
 use ZnCore\Domain\Helpers\Repository\RelationHelper;
 use ZnCore\Domain\Interfaces\ReadAllInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnCore\Domain\Relations\libs\RelationLoader;
 
 class QueryFilter
