@@ -3,7 +3,7 @@
 namespace ZnDatabase\Base\Domain\Facades;
 
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
-use ZnCore\Base\Libs\DotEnv\Libs\DotEnvMap;
+use ZnCore\Base\Libs\DotEnv\Domain\Libs\DotEnvMap;
 use ZnDatabase\Base\Domain\Helpers\ConfigHelper;
 
 class DbFacade

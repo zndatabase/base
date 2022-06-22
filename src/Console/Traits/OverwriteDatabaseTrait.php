@@ -8,7 +8,7 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 
 use ZnCore\Base\Helpers\UrlHelper;
 use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
-use ZnCore\Base\Libs\DotEnv\DotEnv;
+use ZnCore\Base\Libs\DotEnv\Domain\Libs\DotEnv;
 use ZnCore\Base\Libs\Text\Helpers\TextHelper;
 use ZnDatabase\Base\Domain\Repositories\Eloquent\SchemaRepository;
 
