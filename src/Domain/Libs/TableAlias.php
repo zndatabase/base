@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Libs;
 
-use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
 
 class TableAlias
 {
