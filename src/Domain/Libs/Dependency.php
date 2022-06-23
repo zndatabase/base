@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Libs;
 
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 use ZnDatabase\Base\Domain\Repositories\Eloquent\SchemaRepository;
 
 class Dependency

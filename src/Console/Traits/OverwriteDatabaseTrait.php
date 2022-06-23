@@ -5,8 +5,7 @@ namespace ZnDatabase\Base\Console\Traits;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
-
-use ZnCore\Base\Helpers\UrlHelper;
+use ZnCore\Base\Libs\Http\Helpers\UrlHelper;
 use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
 use ZnCore\Base\Libs\DotEnv\Domain\Libs\DotEnv;
 use ZnCore\Base\Libs\Text\Helpers\TextHelper;

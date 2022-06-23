@@ -3,7 +3,7 @@
 namespace ZnDatabase\Base\Domain\Helpers;
 
 use GuzzleHttp\Psr7\Uri;
-use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
 use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
 
 class ConfigHelper
