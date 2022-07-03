@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Entities;
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\RelationEntity;
 
