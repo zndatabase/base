@@ -47,7 +47,7 @@ class TableEntity
     }
 
     /**
-     * @return Collection | ColumnEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
      */
     public function getColumns(): Collection
     {
@@ -60,7 +60,7 @@ class TableEntity
     }
 
     /**
-     * @return Collection | RelationEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | RelationEntity[]
      */
     public function getRelations(): ?Collection
     {

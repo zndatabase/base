@@ -162,7 +162,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
 
     /**
      * @param string $tableName
-     * @return Collection | ColumnEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
      */
     public function getColumnsByTable(string $tableName): Collection
     {

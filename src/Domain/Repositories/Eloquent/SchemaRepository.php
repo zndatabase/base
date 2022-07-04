@@ -73,7 +73,7 @@ class SchemaRepository
     }
 
     /**
-     * @return Collection | TableEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | TableEntity[]
      */
     public function allTables(): Collection
     {

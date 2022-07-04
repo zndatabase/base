@@ -53,7 +53,7 @@ abstract class DbRepository
     /**
      * @param string $tableName
      * @param string $schemaName
-     * @return Collection | ColumnEntity[]
+     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
      */
     public function allColumnsByTable(string $tableName, string $schemaName = 'public'): Collection
     {
