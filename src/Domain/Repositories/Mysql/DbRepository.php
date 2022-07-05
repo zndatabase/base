@@ -3,25 +3,20 @@
 namespace ZnDatabase\Base\Domain\Repositories\Mysql;
 
 use App\Example\Controllers\ExampleEntity;
-use Illuminate\Database\Connection;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Schema\Builder;
-use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use Illuminate\Database\Schema\MySqlBuilder;
 use Illuminate\Database\Schema\PostgresBuilder;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Base\Domain\Entities\SchemaEntity;
-use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
-use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
-use ZnDatabase\Fixture\Domain\Entities\FixtureEntity;
-use ZnDatabase\Fixture\Domain\Helpers\StructHelper;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\RelationEntity;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
+use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
+use ZnDatabase\Fixture\Domain\Helpers\StructHelper;
 
 class DbRepository
 {

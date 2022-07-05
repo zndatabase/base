@@ -3,9 +3,6 @@
 namespace ZnDatabase\Base\Domain\Entities;
 
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
-use ZnDatabase\Base\Domain\Entities\ColumnEntity;
-use ZnDatabase\Base\Domain\Entities\RelationEntity;
 
 class TableEntity
 {
@@ -77,10 +74,10 @@ class TableEntity
     {
         return $this->schema;
     }
-    
+
     public function setSchema(SchemaEntity $schema): void
     {
         $this->schema = $schema;
     }
-    
+
 }

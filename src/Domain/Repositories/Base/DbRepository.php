@@ -2,19 +2,12 @@
 
 namespace ZnDatabase\Base\Domain\Repositories\Base;
 
-use Illuminate\Database\Connection;
-use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Helpers\EntityHelper;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Base\Domain\Entities\SchemaEntity;
-use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
-use ZnDatabase\Base\Domain\Entities\RelationEntity;
-use ZnDatabase\Base\Domain\Entities\TableEntity;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
 
 abstract class DbRepository
 {

@@ -2,15 +2,12 @@
 
 namespace ZnDatabase\Base\Domain\Repositories\Eloquent;
 
-use Illuminate\Database\Connection;
-use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
-use ZnDatabase\Eloquent\Domain\Capsule\Manager;
-use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
-use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
-use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
+use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
+use ZnDatabase\Eloquent\Domain\Capsule\Manager;
+use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
 
 class SchemaRepository
 {
@@ -23,7 +20,7 @@ class SchemaRepository
     {
         $this->setCapsule($capsule);
         $driver = $this->getConnection()->getDriverName();
-        
+
         if ($driver == DbDriverEnum::SQLITE) {
             $this->dbRepository = new \ZnDatabase\Base\Domain\Repositories\Sqlite\DbRepository($capsule);
         } elseif ($driver == DbDriverEnum::PGSQL) {

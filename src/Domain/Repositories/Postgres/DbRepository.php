@@ -3,10 +3,9 @@
 namespace ZnDatabase\Base\Domain\Repositories\Postgres;
 
 use App\Example\Controllers\ExampleEntity;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\RelationEntity;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
@@ -128,7 +127,7 @@ WHERE
             $columnEntity = new ColumnEntity();
 
             $isMatch = preg_match('/(.+)\((\d+)\)/i', $attribute->type, $matches);
-            if($isMatch) {
+            if ($isMatch) {
                 $type = $matches[1];
                 $length = intval($matches[2]);
             } else {
