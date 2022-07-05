@@ -55,20 +55,20 @@ class TableEntity
         return $this->columns;
     }
 
-    public function setColumns(Collection $columns): void
+    public function setColumns(Enumerable $columns): void
     {
         $this->columns = $columns;
     }
 
     /**
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | RelationEntity[]
+     * @return Enumerable | RelationEntity[]
      */
-    public function getRelations(): ?Collection
+    public function getRelations(): ?Enumerable
     {
         return $this->relations;
     }
 
-    public function setRelations(?Collection $relations): void
+    public function setRelations(?Enumerable $relations): void
     {
         $this->relations = $relations;
     }
