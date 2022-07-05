@@ -5,6 +5,7 @@ namespace ZnDatabase\Base\Domain\Repositories\Base;
 use Illuminate\Database\Connection;
 use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -53,9 +54,9 @@ abstract class DbRepository
     /**
      * @param string $tableName
      * @param string $schemaName
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
+     * @return Enumerable | ColumnEntity[]
      */
-    public function allColumnsByTable(string $tableName, string $schemaName = 'public'): Collection
+    public function allColumnsByTable(string $tableName, string $schemaName = 'public'): Enumerable
     {
         $schema = $this->getSchema();
         $columnList = $schema->getColumnListing($tableName);

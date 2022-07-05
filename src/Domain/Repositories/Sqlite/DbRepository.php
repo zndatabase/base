@@ -9,6 +9,7 @@ use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
 use Illuminate\Database\Schema\MySqlBuilder;
 use Illuminate\Database\Schema\PostgresBuilder;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
@@ -62,7 +63,7 @@ class DbRepository
         return FixtureEntity::class;
     }*/
 
-    public static function allPostgresTables(ConnectionInterface $connection): Collection
+    public static function allPostgresTables(ConnectionInterface $connection): Enumerable
     {
         $schemaCollection = StructHelper::allPostgresSchemas($connection);
         $tableCollection = new Collection;
@@ -80,7 +81,7 @@ class DbRepository
         return $tableCollection;
     }
 
-    public function allRelations(string $tableName): Collection
+    public function allRelations(string $tableName): Enumerable
     {
         $sql = "SELECT
 tc.constraint_name, tc.table_name, kcu.column_name, 
@@ -107,7 +108,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
         return $collection;
     }
 
-    public function allTablesByName(array $nameList): Collection
+    public function allTablesByName(array $nameList): Enumerable
     {
         /** @var TableEntity[] $collection */
         $collection = $this->allTables();
@@ -124,7 +125,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
         return $newCollection;
     }
 
-    public function allTables(): Collection
+    public function allTables(): Enumerable
     {
         $tableAlias = $this->getCapsule()->getAlias();
         /* @var Builder|MySqlBuilder|PostgresBuilder $schema */
@@ -168,9 +169,9 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
 
     /**
      * @param string $tableName
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
+     * @return Enumerable | ColumnEntity[]
      */
-    public function getColumnsByTable(string $tableName): Collection
+    public function getColumnsByTable(string $tableName): Enumerable
     {
         $schema = $this->getSchema();
         $columnList = $schema->getColumnListing($tableName);

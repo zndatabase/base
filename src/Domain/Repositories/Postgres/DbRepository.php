@@ -3,6 +3,7 @@
 namespace ZnDatabase\Base\Domain\Repositories\Postgres;
 
 use App\Example\Controllers\ExampleEntity;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
@@ -13,7 +14,7 @@ use ZnDatabase\Base\Domain\Entities\TableEntity;
 class DbRepository extends \ZnDatabase\Base\Domain\Repositories\Base\DbRepository
 {
 
-    public function allTables(): Collection
+    public function allTables(): Enumerable
     {
         $connection = $this->getConnection();
         $schemas = $this->allSchemas();
@@ -33,7 +34,7 @@ class DbRepository extends \ZnDatabase\Base\Domain\Repositories\Base\DbRepositor
         return $tableCollection;
     }
 
-    public function allRelations(string $tableName): Collection
+    public function allRelations(string $tableName): Enumerable
     {
         $sql = "SELECT
 tc.constraint_name, tc.table_name, kcu.column_name, 
@@ -76,7 +77,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
         return $schemaNames;
     }
 
-    public function allColumnsByTable(string $tableName, string $schemaName = 'public'): Collection
+    public function allColumnsByTable(string $tableName, string $schemaName = 'public'): Enumerable
     {
         $connection = $this->getConnection();
         /*$schemaCollection = $connection->select("SELECT column_name, data_type

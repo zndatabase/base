@@ -2,6 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Entities;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Base\Domain\Entities\RelationEntity;
@@ -47,9 +48,9 @@ class TableEntity
     }
 
     /**
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | ColumnEntity[]
+     * @return Enumerable | ColumnEntity[]
      */
-    public function getColumns(): Collection
+    public function getColumns(): Enumerable
     {
         return $this->columns;
     }

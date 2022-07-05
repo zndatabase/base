@@ -4,6 +4,7 @@ namespace ZnDatabase\Base\Domain\Repositories\Eloquent;
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Schema\Builder as SchemaBuilder;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
@@ -55,7 +56,7 @@ class SchemaRepository
         return $this->capsule;
     }*/
 
-    public function allTablesByName(array $nameList): Collection
+    public function allTablesByName(array $nameList): Enumerable
     {
         /** @var TableEntity[] $collection */
         $collection = $this->allTables();
@@ -73,9 +74,9 @@ class SchemaRepository
     }
 
     /**
-     * @return \ZnCore\Domain\Collection\Interfaces\Enumerable | TableEntity[]
+     * @return Enumerable | TableEntity[]
      */
-    public function allTables(): Collection
+    public function allTables(): Enumerable
     {
         return $this->dbRepository->allTables();
     }
