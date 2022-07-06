@@ -17,7 +17,7 @@ class DbRepository extends \ZnDatabase\Base\Domain\Repositories\Base\DbRepositor
     {
         $connection = $this->getConnection();
         $schemas = $this->allSchemas();
-        $tableCollection = new Collection;
+        $tableCollection = new Collection();
         foreach ($schemas as $schemaName) {
             $tables = $connection->select("SELECT * FROM information_schema.tables WHERE table_schema = '{$schemaName}'");
             $tableNames = ArrayHelper::getColumn($tables, 'table_name');

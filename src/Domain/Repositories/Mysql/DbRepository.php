@@ -61,7 +61,7 @@ class DbRepository
     public static function allPostgresTables(ConnectionInterface $connection): Enumerable
     {
         $schemaCollection = StructHelper::allPostgresSchemas($connection);
-        $tableCollection = new Collection;
+        $tableCollection = new Collection();
         foreach ($schemaCollection as $schemaEntity) {
             $tables = $connection->select("SELECT * FROM information_schema.tables WHERE table_schema = '{$schemaEntity->getName()}'");
             // select * from pg_tables where schemaname='public';
@@ -127,7 +127,7 @@ WHERE constraint_type = 'FOREIGN KEY' AND tc.table_name='$tableName';";
         $schema = $this->getSchema();
 
         $dbName = $schema->getConnection()->getDatabaseName();
-        $collection = new Collection;
+        $collection = new Collection();
         if ($schema->getConnection()->getDriverName() == DbDriverEnum::SQLITE) {
             $array = $schema->getConnection()->getPdo()->query('SELECT name FROM sqlite_master WHERE type=\'table\'')->fetchAll(\PDO::FETCH_COLUMN);
             foreach ($array as $targetTableName) {
