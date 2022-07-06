@@ -3,7 +3,7 @@
 namespace ZnDatabase\Base\Domain\Helpers;
 
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
-use ZnCore\Base\DotEnv\Domain\Libs\DotEnv;
+use ZnCore\DotEnv\Domain\Libs\DotEnv;
 use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
 
 class DbHelper

@@ -2,8 +2,8 @@
 
 namespace ZnDatabase\Base\Domain\Repositories\Eloquent;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Libs\Collection;
 use ZnDatabase\Base\Domain\Entities\TableEntity;
 use ZnDatabase\Base\Domain\Enums\DbDriverEnum;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;

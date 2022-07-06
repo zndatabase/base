@@ -2,8 +2,8 @@
 
 namespace ZnDatabase\Base\Domain\Repositories\Base;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Libs\Collection;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;

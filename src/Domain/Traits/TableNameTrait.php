@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Traits;
 
-use ZnCore\Base\DotEnv\Domain\Libs\DotEnv;
+use ZnCore\DotEnv\Domain\Libs\DotEnv;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Base\Domain\Libs\TableAlias;
 
