@@ -7,7 +7,7 @@ use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\MySqlBuilder;
 use Illuminate\Database\Schema\PostgresBuilder;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Collection\Libs\Collection;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;

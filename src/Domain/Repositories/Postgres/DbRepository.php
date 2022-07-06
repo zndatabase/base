@@ -3,7 +3,7 @@
 namespace ZnDatabase\Base\Domain\Repositories\Postgres;
 
 use App\Example\Controllers\ExampleEntity;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Collection\Libs\Collection;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;

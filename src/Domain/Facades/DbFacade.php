@@ -2,7 +2,7 @@
 
 namespace ZnDatabase\Base\Domain\Facades;
 
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnCore\DotEnv\Domain\Libs\DotEnvMap;
 use ZnDatabase\Base\Domain\Helpers\ConfigHelper;
 
