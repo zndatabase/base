@@ -1,8 +1,8 @@
 <?php
 
 use Psr\Container\ContainerInterface;
-use ZnCore\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\EntityManager\Libs\EntityManager;
+use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
+use ZnDomain\EntityManager\Libs\EntityManager;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Eloquent\Domain\Factories\ManagerFactory;
 use Illuminate\Database\Capsule\Manager as CapsuleManager;

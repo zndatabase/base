@@ -4,7 +4,7 @@ namespace ZnDatabase\Base\Domain\Repositories\Base;
 
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Collection\Libs\Collection;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnDomain\Domain\Helpers\EntityHelper;
 use ZnDatabase\Base\Domain\Entities\ColumnEntity;
 use ZnDatabase\Eloquent\Domain\Capsule\Manager;
 use ZnDatabase\Eloquent\Domain\Traits\EloquentTrait;
